@@ -1,27 +1,34 @@
+/*
+ * Adhithya Kondalsamy
+ * Period: 6
+ * 1/26/17
+ * Amberg
+ * Code that reads in an unlimited number of integers and prints out the
+ * number of times each integer was entered. 
+ */
 import java.util.Scanner;
 
 public class InRange {
 
 	public static void main(String[] args) {
-
-		Scanner scan = new Scanner(System.in);
-
-		int[] integers = new int[51];
-
-		System.out
-				.println("Enter integers >= 0 and <= 50 or enter -1 to quit: ");
-		int number = scan.nextInt();
-
-		while (number != -1 && number >= 0 && number <= 50) {
-			integers[number]++;
-			number = scan.nextInt();
+		Scanner keyboard = new Scanner(System.in);
+		int[] numbers = new int[51];
+		int x = 0;
+		while (x != 100) {
+			System.out.print("Enter a number between -25 and 25(100 to quit): ");
+			x = keyboard.nextInt();
+			if (x >= -25 && x <= 25)
+				numbers[x+25]++;
 		}
-
-		for (int i = 0; i <= 50; i++) {
-			if (integers[i] > 0) {
-				System.out.println(i + " : " + integers[i]);
+		System.out.println();
+		for (int i = 0; i < numbers.length; i++) {
+			if (numbers[i] > 0) {
+				int index = i-25;
+				System.out.print(index + ": ");
+				System.out.println(numbers[i]);
 			}
+
 		}
 
-	}//end main
-}//end InRange
+	}// end main
+}// end InRange
